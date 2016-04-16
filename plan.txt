@@ -1,0 +1,11 @@
+The intention for this project is to be a top down or side view sandbox
+where small creatures (pixels?) with AI can grow and attempt to learn to cooperate.
+
+To start creatures will have:
+1. Size
+2. Hunger (movement uses hunger)
+3. Health
+4. Speed
+5. Color
+
+Same color pixels will be able to reproduce at the cost of hunger
