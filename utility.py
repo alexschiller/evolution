@@ -5,6 +5,7 @@ from time import time  # noqa
 from os.path import abspath  # noqa
 from pyglet.window import key # noqa
 
+mainbatches = [pyglet.graphics.Batch(), pyglet.graphics.Batch(), pyglet.graphics.Batch()]
 
 window_height = 800
 window_width = 1400

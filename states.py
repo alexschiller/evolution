@@ -5,15 +5,17 @@ from time import time  # noqa
 from os.path import abspath  # noqa
 from pyglet.window import key # noqa
 from evolution import Assets
-
+from character import * # noqa
 
 class State(object):
     def __init__(self, assets, manager):
         self.manager = manager
         self.assets = assets
         self.batches = []
+        char = Character()
 
     def update(self):
+        print "yo"
         pass
 
     def draw(self):
