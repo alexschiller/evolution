@@ -3,6 +3,7 @@ from pyglet.gl import *  # noqa
 from collections import OrderedDict  # noqa
 from time import time  # noqa
 from os.path import abspath  # noqa
+from utility import * # noqa
 from pyglet.window import key # noqa
 from evolution import Assets
 from character import * # noqa
@@ -11,12 +12,11 @@ class State(object):
     def __init__(self, assets, manager):
         self.manager = manager
         self.assets = assets
-        self.batches = []
-        char = Character()
+        self.batches = mainbatches
 
     def update(self):
-        print "yo"
-        pass
+        for c in self.assets.modules['characters']:
+            c.update()
 
     def draw(self):
         self.assets.draw()
