@@ -62,7 +62,10 @@ class Controller(object):
 
 
     def update(self):
+        if self.puppet.target:
+            self.move_target = [self.puppet.target.sprite.x, self.puppet.target.sprite.y]
         self.update_movement()
         if not self.move_target:
             self.set_move_to(random.randint(0, window_width), random.randint(0, window_height))
+
 

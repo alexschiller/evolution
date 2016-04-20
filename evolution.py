@@ -10,6 +10,15 @@ from character import Character
 
 class Assets(ModuleBoilerplate):
     def __init__(self):
+        self.blue = []
+        self.green = []
+
         self.modules = {
-            'characters': [Character(),Character(),Character(),Character(),Character(),Character(),],
+            'characters': [Character(self),Character(self),Character(self),Character(self),Character(self),Character(self),],
         }
+
+    def get_blue(self):
+        return self.blue
+
+    def get_green(self):
+        return self.green
