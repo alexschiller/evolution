@@ -39,10 +39,13 @@ class Controller(object):
         return False
 
     def move(self, mx, my):
-        self.last_mx = mx
-        self.last_my = my
-        self.puppet.sprite.x += mx
-        self.puppet.sprite.y += my
+        try:
+            self.last_mx = mx
+            self.last_my = my
+            self.puppet.sprite.x += mx
+            self.puppet.sprite.y += my
+        except:
+            print "nerd"
 
     def update_movement(self):
         if self.move_target:
