@@ -63,7 +63,6 @@ class Controller(object):
                     self.sx, self.sy, self.puppet.speed)
             self.move(ret[0], ret[1])
 
-
     def update(self):
         if self.puppet.target:
             self.move_target = [self.puppet.target.sprite.x, self.puppet.target.sprite.y]

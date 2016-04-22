@@ -17,6 +17,7 @@ class State(object):
     def update(self):
         for c in self.assets.modules['characters']:
             c.update()
+        self.assets.update()
 
     def draw(self):
         self.assets.draw()
