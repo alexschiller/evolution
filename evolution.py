@@ -17,11 +17,6 @@ class Assets(ModuleBoilerplate):
         self.modules = {
             'characters': [
             Plant(self, random.randint(50,window_width-50), random.randint(50,window_height-50) ),
-            Plant(self, random.randint(50,window_width-50), random.randint(50,window_height-50) ),
-            Plant(self, random.randint(50,window_width-50), random.randint(50,window_height-50) ),
-            Plant(self, random.randint(50,window_width-50), random.randint(50,window_height-50) ),
-            Plant(self, random.randint(50,window_width-50), random.randint(50,window_height-50) ),
-            Plant(self, random.randint(50,window_width-50), random.randint(50,window_height-50) ),
             ],
         }
 
