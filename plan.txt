@@ -9,3 +9,6 @@ To start creatures will have:
 5. Color
 
 Same color pixels will be able to reproduce at the cost of hunger
+
+The current problem I'm facing is how to implement positive and negative reinforcement. 
+I think each object needs to store logs of its behavior to try and see if what they are doing is successful. How contextually bound should this information be? For example, will the creature learn to turn right all the time or only when turning right is meaningful? This is going to take some more though before I can start an implimentation that will work. 

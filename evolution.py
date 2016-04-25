@@ -1,12 +1,12 @@
-import random
+import random # noqa
 import pyglet  # noqa
 from pyglet.gl import *  # noqa
 from collections import OrderedDict  # noqa
 from time import time  # noqa
 from os.path import abspath  # noqa
 from pyglet.window import key # noqa
-from utility import ModuleBoilerplate, window_width, window_height
-from character import Character, Plant
+from utility import ModuleBoilerplate, window_width, window_height # noqa
+from character import Character, Plant # noqa
 
 
 class Assets(ModuleBoilerplate):
@@ -16,7 +16,6 @@ class Assets(ModuleBoilerplate):
 
         self.modules = {
             'characters': [
-            Plant(self, random.randint(50,window_width-50), random.randint(50,window_height-50) ),
             ],
         }
 
@@ -28,5 +27,3 @@ class Assets(ModuleBoilerplate):
 
     def update(self):
         pass
-        # if not random.randint(0, 120):
-            # self.modules['characters'].append(Character(self))
