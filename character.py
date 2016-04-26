@@ -1,26 +1,36 @@
 import pyglet  # noqa
 from pyglet.gl import *  # noqa
-from utility import load_image, mainbatches, window_width, window_height # noqa
+from utility import load_image, mainbatches, window_width, window_height, calc_vel_xy # noqa
 from collide import * # noqa
 import random
-from controller import Controller
+import math
+# from controller import Controller
+
+def mean(inp):
+    return sum(inp) / float(len(inp))
 
 green_sprite = pyglet.image.SolidColorImagePattern(color=(30, 255, 30, 255))
 blue_sprite = pyglet.image.SolidColorImagePattern(color=(30, 30, 255, 255))
+
 class Character(object):
-    def __init__(self, assets, *args, **kwargs):
+    def __init__(self, assets):
         self.assets = assets
-        self.sprite = pyglet.sprite.Sprite(pyglet.image.create(10, 10, green_sprite),
-            random.randint(0, 500), random.randint(0, 500), batch=mainbatches[2]) # noqa
-        self.collision = SpriteCollision(self.sprite)
-        self.controller = Controller(self)
-        self.speed = .5
-        self.energy = 500
-        self.health = 100
-        self.target = None
+        self.sprites = [pyglet.sprite.Sprite(pyglet.image.create(10, 10, green_sprite),
+            500, 500, batch=mainbatches[2])
+        ]
+        for i in range(9):
+            self.make_sprite()
+        # self.collision = SpriteCollision(self.sprite)
+        # self.controller = Controller(self)
 
     def update(self):
-        pass
+        self.random_move()
+        m = self.sprite_mean()
+        for i in self.sprites:
+            if math.hypot(m[0] - i.x, m[1] - i.y) > 10:
+                ret = calc_vel_xy(m[0], m[1], i.x, i.y, 3)
+                i.x += ret[0]
+                i.y += ret[1]
 
     def cleanup(self):
         try:
@@ -35,3 +45,20 @@ class Character(object):
             del self
         except:
             pass
+
+    def random_move(self):
+        v = random.choice(self.sprites)
+        v.x += random.randint(-5, 5)
+        v.y += random.randint(-5, 5)
+
+    def sprite_mean(self):
+        x = mean([m.x for m in self.sprites])
+        y = mean([m.x for m in self.sprites])
+        return (x, y)
+
+    def make_sprite(self):
+        m = self.sprite_mean()
+        self.sprites.append(
+            pyglet.sprite.Sprite(pyglet.image.create(10, 10, green_sprite),
+                m[0], m[1], batch=mainbatches[2]) # noqa
+        )
