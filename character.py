@@ -20,10 +20,20 @@ class Character(object):
         ]
         for i in range(9):
             self.make_sprite()
+        self.target = None
         # self.collision = SpriteCollision(self.sprite)
         # self.controller = Controller(self)
 
     def update(self):
+        if not self.target:
+            self.target = (random.randint(50, window_width - 50), random.randint(50, window_height - 50))
+        print self.target
+        print self.sprite_mean()
+        print "###"
+        i = random.choice(self.sprites)
+        ret = calc_vel_xy(self.target[0], self.target[1], i.x, i.y, 3)
+        i.x += ret[0]
+        i.y += ret[1]
         self.random_move()
         m = self.sprite_mean()
         for i in self.sprites:
