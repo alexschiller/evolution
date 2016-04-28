@@ -34,6 +34,12 @@ class Character(object):
         ret = calc_vel_xy(self.target[0], self.target[1], i.x, i.y, 3)
         i.x += ret[0]
         i.y += ret[1]
+        i = random.choice(self.sprites)
+        i.x += ret[0]
+        i.y += ret[1]
+        i = random.choice(self.sprites)
+        i.x += ret[0]
+        i.y += ret[1]
         self.random_move()
         m = self.sprite_mean()
         for i in self.sprites:
@@ -63,7 +69,7 @@ class Character(object):
 
     def sprite_mean(self):
         x = mean([m.x for m in self.sprites])
-        y = mean([m.x for m in self.sprites])
+        y = mean([m.y for m in self.sprites])
         return (x, y)
 
     def make_sprite(self):
