@@ -7,6 +7,7 @@ from utility import * # noqa
 from pyglet.window import key # noqa
 from evolution import Assets
 from character import * # noqa
+from point import Point
 
 class State(object):
     def __init__(self, assets, manager):
@@ -36,6 +37,7 @@ class State(object):
 
     def on_mouse_drag(self, x, y, dx, dy, buttons, modifiers):
         self.assets.on_mouse_drag(x, y, dx, dy, buttons, modifiers)
+        self.assets.points.append(Point(self.assets, x, y))
 
     def on_key_press(self, symbol, modifiers):
         self.assets.on_key_press(symbol, modifiers)
