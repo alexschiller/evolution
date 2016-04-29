@@ -8,7 +8,7 @@ white_sprite = pyglet.image.SolidColorImagePattern(color=(240, 240, 240, 255))
 class Point(object):
     def __init__(self, assets, x, y):
         self.sprite = pyglet.sprite.Sprite(pyglet.image.create(5, 5, white_sprite),
-            x, y, batch=mainbatches[2]) # noqa
+            round(x / 10.0) * 10, round(y / 10.0) * 10, batch=mainbatches[2]) # noqa
         self.assets = assets
 
     @property
