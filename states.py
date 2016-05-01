@@ -35,8 +35,8 @@ class State(object):
 
     def on_mouse_press(self, x, y, button, modifiers):
         self.assets.on_mouse_press(x, y, button, modifiers)
-        self.assets.frame.x = round(x / 10.0) * 10 + 95
-        self.assets.frame.y = round(y / 10.0) * 10 + 95
+        self.assets.frame.x = round(x / 10.0) * 10
+        self.assets.frame.y = round(y / 10.0) * 10
 
     def on_mouse_motion(self, x, y, dx, dy):
         self.assets.on_mouse_motion(x, y, dx, dy)
