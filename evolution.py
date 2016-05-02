@@ -20,6 +20,3 @@ class Assets(ModuleBoilerplate):
 
     def update(self):
         pass
-
-    def evaluate_points(self):
-        pass
